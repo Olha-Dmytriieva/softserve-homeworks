@@ -2,14 +2,20 @@ let sideA = Number(prompt('Please type size of the side A'));
 let sideB = Number(prompt('Please type size of the side B'));
 let sideC = Number(prompt('Please type size of the side C'));
 
+
 //checking if the value indicated is  a number
 
-if(sideA || sideB || sideC === NaN){
-    alert('Incorrect data')
+
+if(Number.isNaN(sideA) === true){
+      alert('Incorrect data')
+}else if(Number.isNaN(sideB)=== true){
+      alert('Incorrect data')
+}else if(Number.isNaN(sideC)=== true){
+      alert('Incorrect data')
 }
 
 
-//finging semiperimeter and square as per Geron formula
+//finding semiperimeter and square as per Geron formula
 
 let semiperimeter = 0.5*(sideA+sideB+sideC);
 console.log(semiperimeter)

@@ -12,7 +12,7 @@ let hours = date.getHours();
 
 console.log(hours)
 
-//variant 1
+// variant 1
 
 // if (hours >= 23 || hours <= 4 ){
 //     alert('Доброї ночі')
@@ -27,23 +27,59 @@ console.log(hours)
 // };
 
 
-//varian 2 
+//variant 2 
 
 // switch (true) {
 //     case (hours >= 23):
-//     case (hours >= 0):
+//     case(hours <= 4):
+//     case (hours === 0):
 //         alert('Доброї ночі');
 //         break;
 //     case (hours >= 5):
+//     case(hours <= 10):
 //         alert('Доброго ранку');
 //         break;
 //     case (hours >= 11):
+//     case(hours <= 16):
 //         alert('Доброго дня');
 //         break;
 //     case (hours >= 17):
+//     case(hours <= 22):
 //         alert('Доброго вечора');
 //         break;
 // }
+
+// 
+// В діапазоні годин 5-11 – має виводитися привітання “Доброго ранку”
+// В діапазоні годин 11-17 – має виводитися привітання “Доброго дня”
+// В діапазоні годин 17-23 – має виводитися привітання “Доброго вечора”
+// В діапазоні годин 23-5 – має виводитися привітання “Доброї ночі”
+
+
+console.log(17 >= hours)
+
+switch(true){
+    case(23 === hours):
+    case(hours === 0):
+    case(4 >=hours):
+         alert('Доброї ночі');
+         break;
+   case(hours <= 5):
+   case(10 >= hours):
+         alert('Доброго ранку');
+         break;
+    case(11 >= hours):     
+    case(16 >= hours):
+        alert('Доброго дня');
+        break;
+    case(17 >= hours):
+    case(22 >= hours):
+        alert('Доброго вечора');
+        break;
+   
+
+
+}
 
 //***********or************/
 
@@ -85,4 +121,7 @@ console.log(hours)
 
 
 //}
+
+
+
 
