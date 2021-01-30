@@ -56,8 +56,6 @@ console.log(hours)
 // В діапазоні годин 23-5 – має виводитися привітання “Доброї ночі”
 
 
-console.log(17 >= hours)
-
 switch(true){
     case(23 === hours):
     case(hours === 0):
