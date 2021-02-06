@@ -174,6 +174,7 @@ worker3.showSalaryWithNewExperience();
 
 function comparison(){
     // const values = Object.values(salaryComparison);
+    
     const keys = Object.keys(salaryComparison);
         
     console.log(`${ keys.concat(keys.splice(keys.indexOf(keys.reduce((prev, cur) => prev < cur ? cur : prev)), 1))}` );
