@@ -1,58 +1,58 @@
 
 // *********task1*********//
 
+
 function calcRectangleArea(width, height){
-    
-    try{
-            if(Number(width) && Number(height)){
-                let square = width*height;
-                alert(square)
-            } else {
-                throw new Error("Something went wrong");
-                    }        
-        } 
-    catch{
-        if(Number.isNaN(width) && Number.isNaN(height)){
-            alert('Wrong parameter indicated')
-        }else if(width === 0 && height === 0){
-            alert('No data received')
-        }
+    let square = width*height;
+    if(Number.isNaN(width) || Number.isNaN(height)){
+        throw 'is NaN'
     }
+    console.log(square)
+
     
 }
 
-calcRectangleArea(Number(prompt()), Number(prompt()))
+    try{
+        calcRectangleArea(Number(prompt()), Number(prompt()));
+    } catch (exeption){
+        console.error(exeption);
+    }
 
 
-// *********task2*********//
+// // *********task2*********//
 
 function checkAge(age){
 console.log('age:' , age)
 
-    try{
-        if (age >= 14){
+    if (age >= 14){
         alert('Please click to procees to film')
-        } else {
-            throw new Error("Something went wrong");
-        }   
-    } 
-
-    catch {
-        if (Number.isNaN(age)){
-        alert('Wrong data received')
-        } else if ( age === 0){
-        alert('The field is empty! Please enter your age')
+        } 
+    else  if (Number.isNaN(age)){
+        throw ('Wrong data received');
         }
-        else if (age < 14){
-        alert('You are too young')
+    else if ( age === 0){
+        throw ('The field is empty! Please enter your age');
         }
+    else if (age < 14){
+        throw ('You are too young');
+    } else {
+        throw "Something went wrong";
     }
-}
+}   
+
     
-checkAge(Number(prompt('What is your age?')));
+
+    try{
+        checkAge(Number(prompt('What is your age?')))
+    } catch (exeption){
+       console.error(exeption)
+    }
+
+    
 
 
-// ************task3************//
+
+// // ************task3************//
 
 
 
@@ -75,84 +75,84 @@ let month1 = new MonthException({name: 'MonthException'})
 function showMonthName(month, value){
 
     for(const key in value){
-
-        try{
-            if(month >= 1 && month <=12 ){
-                if(month === key ){
-                    alert(value[`${key}`]);
+        if(month >= 1 && month <=12 ){
+            if(month === key ){
+                alert(value[`${key}`]);
                     break
                 }
             } else {
-                throw new Error("Something went wrong");           
+                throw month1.errorMessage()
             }
+        
         }
-        catch{
-            month1.errorMessage()
-            break
+    } 
+    try { showMonthName(prompt(),  {
+        1: 'January',
+        2: 'February',
+        3: 'March',
+        4: 'April',
+        5: 'May',
+        6: 'June',
+        7: 'July',
+        8: 'August',
+        9: 'September',
+        10: 'October',
+        11: 'November',
+        12: 'December'
         }
-    }
+    )
+            
+        }
+        catch (exeption){
+            console.error()
+            
 }
 
 
-showMonthName(prompt(),  {
-    1: 'January',
-    2: 'February',
-    3: 'March',
-    4: 'April',
-    5: 'May',
-    6: 'June',
-    7: 'July',
-    8: 'August',
-    9: 'September',
-    10: 'October',
-    11: 'November',
-    12: 'December'
-    }
-)
+
 
 //************task4************//
 
 
+let wrongNumError = RangeError('Wrong data received');
+let belowZeroError = RangeError('Wrong ID below zero');
+
 function showUser(id){
+   
 
-    try{
-        if (id > 0){
+    if (id > 0){
         return ('Correct ID')
-        } else {
-            throw new Error("Something went wrong");
-        }   
-    } 
+    }
+       else  if (Number.isNaN(id)){
 
-    catch {
-        if (Number.isNaN(id)){
-            return ('Wrong data received')
-        } 
+       return  wrongNumError;
+    }  
         else if (id < 0){
-            return ('Wrong ID')
-        }
-    
+
+        return belowZeroError;
+    }
 
 }
 
-}
 function showUsers(ids){
     const filteredElements = [];
-    console.log(ids)
+    console.log(ids);
 
     for(let i = 0; i< ids.length; i+=1){
 
-        if (showUser(ids[i]) === 'Wrong ID' ) {
-            console.log('Error: ID must not be negative', ids[i])
-            // console.log(ids[i])
+        if (showUser(ids[i]) === belowZeroError ) {
+            console.log('Error: ID must not be negative', ids[i]);
+            
         }  
         else if(showUser(ids[i]) === 'Correct ID'){
-            filteredElements.push(`{id: ${ids[i]} }`)
+            filteredElements.push(`{id: ${ids[i]} }`);
         }  
       
-    }console.log( filteredElements)  
+    }
+    console.log( filteredElements);
   
 }
-showUser(Number(prompt()) )
+
 showUsers([7, -12, 44, 22])
 
 
