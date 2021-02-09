@@ -1,188 +1,188 @@
 
-//task1//
+// //task1//
 
-let mentor = { 
-            course: "JS fundamental", 
-            duration: 3,
-            direction: "web-development" 
-        };
+// let mentor = { 
+//             course: "JS fundamental", 
+//             duration: 3,
+//             direction: "web-development" 
+//         };
 
 
-function propsCount(currentObject){
+// function propsCount(currentObject){
     
-console.log(Object.keys(currentObject).length)
+// console.log(Object.keys(currentObject).length)
     
-}
+// }
 
-propsCount(mentor);
-
-
-//task2//
+// propsCount(mentor);
 
 
-const hotel = {
-    name:'Resort Hotel', 
-    capacity:500,
-    hasFreeRooms: true,
-    hasPool: false,
-    stars: 5
-}
+// //task2//
 
 
-
-function showProps(obj){
-console.log(Object.values(obj))
-console.log(Object.keys(obj))
-}
-
-showProps(hotel);
+// const hotel = {
+//     name:'Resort Hotel', 
+//     capacity:500,
+//     hasFreeRooms: true,
+//     hasPool: false,
+//     stars: 5
+// }
 
 
 
+// function showProps(obj){
+// console.log(Object.values(obj))
+// console.log(Object.keys(obj))
+// }
 
-//task3//
+// showProps(hotel);
 
 
 
 
-class Person{
-    constructor(parameter){
-        this.name = parameter.name;
-        this.surname = parameter.surname;
-    }
-
-    showFullName(){
-        console.log(`${this.name}`+ ' ' +`${this.surname}`)
-    }
-}
+// //task3//
 
 
 
-class Student extends Person{
-    constructor(parameter){
-        super(parameter)
-        this.year = parameter.year;
 
-    }
+// class Person{
+//     constructor(parameter){
+//         this.name = parameter.name;
+//         this.surname = parameter.surname;
+//     }
 
-    showFullName(midleName){
+//     showFullName(){
+//         console.log(`${this.name}`+ ' ' +`${this.surname}`)
+//     }
+// }
+
+
+
+// class Student extends Person{
+//     constructor(parameter){
+//         super(parameter)
+//         this.year = parameter.year;
+
+//     }
+
+//     showFullName(midleName){
         
-        this.midleName = midleName.midleName
-        console.log(`${this.name}`+ ' ' +`${this.midleName}`+ ' ' +`${this.surname}`)
+//         this.midleName = midleName.midleName
+//         console.log(`${this.name}`+ ' ' +`${this.midleName}`+ ' ' +`${this.surname}`)
 
-    }
+//     }
 
-    showCourse(){
-        let now = new Date();
-        console.log("Current course: ", now.getFullYear() - this.year)
+//     showCourse(){
+//         let now = new Date();
+//         console.log("Current course: ", now.getFullYear() - this.year)
 
-    }
-}
+//     }
+// }
 
-let stud1 = new Student({name:"Petro", surname: "Petrenko", year: 2015});
-stud1.showFullName({midleName: "Petrovych"})
-stud1.showCourse()
-
-
+// let stud1 = new Student({name:"Petro", surname: "Petrenko", year: 2015});
+// stud1.showFullName({midleName: "Petrovych"})
+// stud1.showCourse()
 
 
 
-//task4//
 
 
-let salaryComparison = {};
+// //task4//
 
 
-class Worker{
+// let salaryComparison = {};
 
-   #experience = 1.2; 
+
+// class Worker{
+
+//    #experience = 1.2; 
    
-    constructor(options){
+//     constructor(options){
 
-        this.fullName = options.fullName;
-        this.dayRate = options.dayRate;
-        this.workingDays = options.workingDays;
+//         this.fullName = options.fullName;
+//         this.dayRate = options.dayRate;
+//         this.workingDays = options.workingDays;
 
-    }
+//     }
 
-    showSalary(){
-        console.log(`${this.fullName} salary `, this.dayRate*this.workingDays);
-    }
+//     showSalary(){
+//         console.log(`${this.fullName} salary `, this.dayRate*this.workingDays);
+//     }
     
-    showSalaryWithExperience(){
-        let totalSalary = this.dayRate*this.workingDays*this.#experience;
-        console.log(`${this.fullName} salary `, totalSalary);
-    }
+//     showSalaryWithExperience(){
+//         let totalSalary = this.dayRate*this.workingDays*this.#experience;
+//         console.log(`${this.fullName} salary `, totalSalary);
+//     }
 
-    showSalaryWithNewExperience(){
-        let totalSalary = this.dayRate*this.workingDays*this.#experience;
-        salaryComparison[this.fullName] = totalSalary;
-        console.log(`${this.fullName} new salary `, totalSalary);
-    }
+//     showSalaryWithNewExperience(){
+//         let totalSalary = this.dayRate*this.workingDays*this.#experience;
+//         salaryComparison[this.fullName] = totalSalary;
+//         console.log(`${this.fullName} new salary `, totalSalary);
+//     }
 
-    get showExp(){
-        return this.#experience;
-     }
+//     get showExp(){
+//         return this.#experience;
+//      }
 
-    set showExp(newExp){
+//     set showExp(newExp){
 
-       return this.#experience =  newExp;
-    }
+//        return this.#experience =  newExp;
+//     }
 
     
-}
+// }
 
 
 
-// Example usage:
-let worker1 = new Worker({fullName: 'John Johnson', dayRate: 20, workingDays: 23});
-console.log(worker1.fullName);                 
-worker1.showSalary();
-console.log("New experience: " + worker1.showExp);
-worker1.showExp
-worker1.showSalaryWithExperience();
-worker1.showExp = 1.5 ;
-console.log("New experience: " + worker1.showExp);
-worker1.showSalaryWithNewExperience();
+// // Example usage:
+// let worker1 = new Worker({fullName: 'John Johnson', dayRate: 20, workingDays: 23});
+// console.log(worker1.fullName);                 
+// worker1.showSalary();
+// console.log("New experience: " + worker1.showExp);
+// worker1.showExp
+// worker1.showSalaryWithExperience();
+// worker1.showExp = 1.5 ;
+// console.log("New experience: " + worker1.showExp);
+// worker1.showSalaryWithNewExperience();
 
 
 
-let worker2 = new Worker({fullName: "Tom Tomson", dayRate: 48, workingDays:22});
-console.log(worker2.fullName);                 
-worker2.showSalary();
-console.log("New experience: " + worker2.showExp);
-worker2.showExp
-worker2.showSalaryWithExperience();
-worker2.showExp = 1.5 ;
-console.log("New experience: " + worker2.showExp);
-worker2.showSalaryWithNewExperience();
+// let worker2 = new Worker({fullName: "Tom Tomson", dayRate: 48, workingDays:22});
+// console.log(worker2.fullName);                 
+// worker2.showSalary();
+// console.log("New experience: " + worker2.showExp);
+// worker2.showExp
+// worker2.showSalaryWithExperience();
+// worker2.showExp = 1.5 ;
+// console.log("New experience: " + worker2.showExp);
+// worker2.showSalaryWithNewExperience();
 
 
-let worker3 = new Worker({fullName: "Andy Ander", dayRate: 29, workingDays: 23});
-console.log(worker3.fullName);                 
-worker3.showSalary();
-console.log("New experience: " + worker3.showExp);
-worker3.showExp
-worker3.showSalaryWithExperience();
-worker3.showExp = 1.5 ;
-console.log("New experience: " + worker3.showExp);
-worker3.showSalaryWithNewExperience();
+// let worker3 = new Worker({fullName: "Andy Ander", dayRate: 29, workingDays: 23});
+// console.log(worker3.fullName);                 
+// worker3.showSalary();
+// console.log("New experience: " + worker3.showExp);
+// worker3.showExp
+// worker3.showSalaryWithExperience();
+// worker3.showExp = 1.5 ;
+// console.log("New experience: " + worker3.showExp);
+// worker3.showSalaryWithNewExperience();
 
 
 
-function comparison(){
+// function comparison(){
         
-    const entries = Object.entries(salaryComparison);
+//     const entries = Object.entries(salaryComparison);
     
-    console.log('Sorted by salary:', entries.sort((a,b) => a[1]-b[1]));
+//     console.log('Sorted by salary:', entries.sort((a,b) => a[1]-b[1]));
    
-}
+// }
 
 
 
-comparison(salaryComparison)
+// comparison(salaryComparison)
 
-console.log(salaryComparison)
+// console.log(salaryComparison)
 
 
 
@@ -256,12 +256,12 @@ const figures = [new Triangle(4, 5), new Square(7), new Circle(5)];
 
 
 function handleFigures(figures){
-// console.log(totalAreas.length)
-
 
     for(const key in figures){
 
         if(figures[key] instanceof GeometricFigure){
+
+            console.log(figures[key])
             
             console.log(triangle1.toString());
             triangle1.getArea();
@@ -271,21 +271,21 @@ function handleFigures(figures){
             
             console.log(circle1.toString());
             circle1.getArea();
-            return 
+            break 
                
         } 
        
     }
 
-  
+  console.log('total of squares', totalAreas.reduce((ttl, amnt)  => ttl + amnt))
+
 
 }
 
 handleFigures(figures); 
 
-// console.dir(totalAreas)
 
-console.log('total of squares', totalAreas.reduce((ttl, amnt)  => ttl + amnt))
+
 
 
 
