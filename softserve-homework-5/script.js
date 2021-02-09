@@ -1,89 +1,87 @@
 
-// let mentor = { 
-//             course: "JS fundamental", 
-//             duration: 3,
-//             direction: "web-development" 
-//         };
-// Результат має бути 3.
-// propsCount(mentor);  // 3
+//task1//
 
-// let mentor = { 
-//                 course: "JS fundamental", 
-//                 duration: 3,
-//                 direction: "web-development" 
-//             };
+let mentor = { 
+            course: "JS fundamental", 
+            duration: 3,
+            direction: "web-development" 
+        };
 
-// function propsCount(currentObject){
+
+function propsCount(currentObject){
     
-// console.log(Object.keys(currentObject).length)
+console.log(Object.keys(currentObject).length)
     
-// }
+}
 
-// propsCount(mentor);
+propsCount(mentor);
 
 
 //task2//
 
 
-// const hotel = {
-//     name:'Resort Hotel', 
-//     capacity:500,
-//     hasFreeRooms: true,
-//     hasPool: false,
-//     stars: 5
-// }
+const hotel = {
+    name:'Resort Hotel', 
+    capacity:500,
+    hasFreeRooms: true,
+    hasPool: false,
+    stars: 5
+}
 
 
 
-// function showProps(obj){
-// console.log(Object.values(obj))
-// console.log(Object.keys(obj))
-// }
+function showProps(obj){
+console.log(Object.values(obj))
+console.log(Object.keys(obj))
+}
 
-// showProps(hotel)
+showProps(hotel);
+
+
+
 
 //task3//
 
 
 
 
-// class Person{
-//     constructor(parameter){
-//         this.name = parameter.name;
-//         this.surname = parameter.surname;
-//     }
+class Person{
+    constructor(parameter){
+        this.name = parameter.name;
+        this.surname = parameter.surname;
+    }
 
-//     showFullName(){
-//         console.log(`${this.name}`+ ' ' +`${this.surname}`)
-//     }
-// }
+    showFullName(){
+        console.log(`${this.name}`+ ' ' +`${this.surname}`)
+    }
+}
 
 
 
-// class Student extends Person{
-//     constructor(parameter){
-//         super(parameter)
-//         this.year = parameter.year;
+class Student extends Person{
+    constructor(parameter){
+        super(parameter)
+        this.year = parameter.year;
 
-//     }
+    }
 
-//     showFullName(midleName){
+    showFullName(midleName){
         
-//         this.midleName = midleName.midleName
-//         console.log(`${this.name}`+ ' ' +`${this.midleName}`+ ' ' +`${this.surname}`)
+        this.midleName = midleName.midleName
+        console.log(`${this.name}`+ ' ' +`${this.midleName}`+ ' ' +`${this.surname}`)
 
-//     }
+    }
 
-//     showCourse(){
-//         let now = new Date();
-//         console.log("Current course: ", now.getFullYear() - this.year)
+    showCourse(){
+        let now = new Date();
+        console.log("Current course: ", now.getFullYear() - this.year)
 
-//     }
-// }
+    }
+}
 
-// let stud1 = new Student({name:"Petro", surname: "Petrenko", year: 2015});
-// stud1.showFullName({midleName: "Petrovych"})
-// stud1.showCourse()
+let stud1 = new Student({name:"Petro", surname: "Petrenko", year: 2015});
+stud1.showFullName({midleName: "Petrovych"})
+stud1.showCourse()
 
 
 
@@ -118,7 +116,7 @@ class Worker{
 
     showSalaryWithNewExperience(){
         let totalSalary = this.dayRate*this.workingDays*this.#experience;
-        salaryComparison[totalSalary] = this.fullName;
+        salaryComparison[this.fullName] = totalSalary;
         console.log(`${this.fullName} new salary `, totalSalary);
     }
 
@@ -173,19 +171,121 @@ worker3.showSalaryWithNewExperience();
 
 
 function comparison(){
-    // const values = Object.values(salaryComparison);
-    
-    const keys = Object.keys(salaryComparison);
         
-    console.log(`${ keys.concat(keys.splice(keys.indexOf(keys.reduce((prev, cur) => prev < cur ? cur : prev)), 1))}` );
-
+    const entries = Object.entries(salaryComparison);
+    
+    console.log('Sorted by salary:', entries.sort((a,b) => a[1]-b[1]));
    
 }
-console.log(comparison(salaryComparison))
 
 
+
+comparison(salaryComparison)
 
 console.log(salaryComparison)
+
+
+
+
+//task5//
+
+
+
+
+let totalAreas = [];
+
+
+
+class GeometricFigure {
+    constructor(side1, side2){
+        this.side1 = side1;
+        this.side2 = side2;
+    }
+
+    getArea() {
+        return 0;
+    }
+    toString() {
+     return Object.getPrototypeOf(this).constructor.name;
+    }
+     }
+
+
+
+class Triangle extends GeometricFigure{
+    getArea() {
+        
+        let square = (0.5*this.side1)*this.side2;
+        totalAreas.push(square)
+        console.log(square)
+    }
+}
+
+
+class Square extends GeometricFigure{
+        
+    getArea() {
+        
+        let square = Math.pow(this.side1, 2)
+        totalAreas.push(square)
+        console.log(square)
+    }
+}
+
+
+class Circle extends GeometricFigure{
+    getArea() {
+        let square = (2 * Math.PI ) * this.side1;
+        totalAreas.push(square)
+        console.log(square)
+    }
+}
+
+
+
+let triangle1 = new Triangle(4,  5);
+
+let square1 = new Square(7);
+
+let circle1 =  new Circle(5);
+
+
+const figures = [new Triangle(4, 5), new Square(7), new Circle(5)];
+
+
+
+
+function handleFigures(figures){
+// console.log(totalAreas.length)
+
+
+    for(const key in figures){
+
+        if(figures[key] instanceof GeometricFigure){
+            
+            console.log(triangle1.toString());
+            triangle1.getArea();
+            
+            console.log(square1.toString());
+            square1.getArea();
+            
+            console.log(circle1.toString());
+            circle1.getArea();
+            return 
+               
+        } 
+       
+    }
+
+  
+
+}
+
+handleFigures(figures); 
+
+// console.dir(totalAreas)
+
+console.log('total of squares', totalAreas.reduce((ttl, amnt)  => ttl + amnt))
 
 
 
