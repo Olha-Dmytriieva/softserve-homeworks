@@ -1,0 +1,25 @@
+.clicked-text{
+    font-family: 'Comic Neue';
+    font-size: 20px;
+    color: orange;
+}
+
+.first-clicked-button{
+    background-color: blue;
+}
+
+.second-clicked-button{
+    background-color: pink;
+}
+
+.third-clicked-button{
+    background-color: brown;
+}
+
+.third-clicked-button-mouseup{
+    background-color: white;
+}
+
+.hovered-item{
+    background-color: yellow;
+}
