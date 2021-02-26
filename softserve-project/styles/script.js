@@ -6,7 +6,7 @@
 //     newpass: document.querySelector('.js-form input[name=new-password]')
 // }
 
-// // console.dir(item.username)
+// console.log(item.username)
 
 // item.form.addEventListener('submit', handleFormSubmit)
 // item.username.addEventListener('input', handleInputUsername);
@@ -15,15 +15,22 @@
 
 
 // function handleFormSubmit(event){
-//     event.preventDefault()
-//     // console.log(event)
+//     // event.preventDefault()
+//     console.log(event)
 // }
 
-// const id = `f${(~~(Math.random()*1e8)).toString(16)}`
+// // const id = `f${(~~(Math.random()*1e8)).toString(16)}`
 
 // function handleInputUsername(event){
+//     console.log('event')
 //     const value = event.currentTarget.value;
-//     localStorage.setItem(`username-${id}`, value);
+//    console.log(event)
+
+
+//     localStorage.setItem(`username`, value);
+
+//     // event.currentTarget.textContent = value
+
  
 // }
 
@@ -65,41 +72,43 @@
 
 
 
-// // const item = {
-// //     form: document.querySelectorAll('.js-form'),
-// //     username: document.querySelectorAll('.js-form input[name=username]'),
-// //     password: document.querySelectorAll('.js-form textarea[name=password]'),
-// //     newpass: document.querySelectorAll('.js-form textarea[name=new-password]')
-// // }
+// const item = {
+//     form: document.querySelectorAll('.js-form'),
+//     username: document.querySelectorAll('.js-form input[name=username]'),
+//     password: document.querySelectorAll('.js-form input[name=password]'),
+//     newpass: document.querySelectorAll('.js-form input[name=new-password]')
+// }
 
-// // item.form.forEach((element => element.addEventListener('submit', handleFormSubmit)))
-// // item.username.forEach((element => element.addEventListener('input', handleInputUsername)));
+// console.log(item.username)
+
+// item.form.forEach((element => element.addEventListener('submit', handleFormSubmit)))
+// item.username.forEach((element => element.addEventListener('input', handleInputUsername)));
 
 
-// // function handleFormSubmit(event){
-// //     // event.preventDefault()
-// //     // console.log(event)
-// // }
+// function handleFormSubmit(event){
+//     // event.preventDefault()
+//     // console.log(event)
+// }
 
-// // // const id = `f${(~~(Math.random()*1e8)).toString(16)}`;
+// // const id = `f${(~~(Math.random()*1e8)).toString(16)}`;
 
-// // function handleInputUsername(event){
+// function handleInputUsername(event){
+//     console.log(event)
+//     const value1 = event.currentTarget.value;
+//     console.log(this)   
+//     localStorage.setItem(`name1`, event.currentTarget.value);
     
-// //     const value1 = event.currentTarget.value;
-// //     console.log(this)   
-// //     localStorage.setItem(`name1`, event.currentTarget.value);
-    
-// //     const usernameFromLocalStorage = localStorage.getItem(`name1`);
-// //     console.log(usernameFromLocalStorage) 
+//     const usernameFromLocalStorage = localStorage.getItem(`name1`);
+//     console.log(usernameFromLocalStorage) 
 
-// //     if (usernameFromLocalStorage){
-// //         console.log(this.textContent)
-// //     this.innerText += usernameFromLocalStorage;
+//     if (usernameFromLocalStorage){
+//         console.log(this.textContent)
+//     this.innerText += usernameFromLocalStorage;
 
     
 
-// //         }
-// //     }
+//         }
+//     }
 
 
 // //========================
@@ -161,9 +170,43 @@ function removeBtnFunction(event){
 
 
 
+const item = {
+    form: document.querySelectorAll('.js-form'),
+    username: document.querySelectorAll('.js-form input[name=username]'),
+    password: document.querySelectorAll('.js-form input[name=password]'),
+    newpass: document.querySelectorAll('.js-form input[name=new-password]')
+}
+
+console.log(item.username)
+
+item.form.forEach((element => element.addEventListener('submit', handleFormSubmit)))
+item.username.forEach((element => element.addEventListener('input', handleInputUsername)));
 
 
+function handleFormSubmit(event){
+    // event.preventDefault()
+    // console.log(event)
+}
 
+// const id = `f${(~~(Math.random()*1e8)).toString(16)}`;
+
+function handleInputUsername(event){
+    console.log(event)
+    const value1 = event.currentTarget.value;
+    console.log(this)   
+    localStorage.setItem(`name1`, event.currentTarget.value);
+    
+    const usernameFromLocalStorage = localStorage.getItem(`name1`);
+    console.log(usernameFromLocalStorage) 
+
+    if (usernameFromLocalStorage){
+        console.log(this.textContent)
+    this.innerText += usernameFromLocalStorage;
+
+    
+
+        }
+    }
 
 
 
