@@ -133,9 +133,15 @@ buttonCreationRef.addEventListener('click',
     const newNode = j.cloneNode(true) ;
         console.log(newNode)
 
-    mainContainerRef.prepend(newNode)
+    mainContainerRef.appendChild(newNode)
+
+    // j.append(newNode)
+
+    // let html = newNode.outerHTML
 
     let html = mainContainerRef.outerHTML
+
+    
     localStorage.setItem('html', html);
 
 })
@@ -166,8 +172,8 @@ function removeBtnFunction(event){
 }
 
 
-
-
+// const o = document.querySelector('div > value')
+// console.log(o)
 
 
 const item = {
@@ -177,10 +183,11 @@ const item = {
     newpass: document.querySelectorAll('.js-form input[name=new-password]')
 }
 
-console.log(item.username)
+// console.log(item.username)
 
-item.form.forEach((element => element.addEventListener('submit', handleFormSubmit)))
+item.form.forEach((element => element.addEventListener('submit', handleFormSubmit)));
 item.username.forEach((element => element.addEventListener('input', handleInputUsername)));
+item.username.forEach((element => element.addEventListener('click', returnTextContent)));
 
 
 function handleFormSubmit(event){
@@ -191,26 +198,94 @@ function handleFormSubmit(event){
 // const id = `f${(~~(Math.random()*1e8)).toString(16)}`;
 
 function handleInputUsername(event){
-    console.log(event)
-    const value1 = event.currentTarget.value;
-    console.log(this)   
-    localStorage.setItem(`name1`, event.currentTarget.value);
+    const uniqueIDRef = (event.currentTarget.parentNode.parentNode.parentNode).getAttribute('value');
+      
+    localStorage.setItem(`name1-${uniqueIDRef}`, event.currentTarget.value);
     
-    const usernameFromLocalStorage = localStorage.getItem(`name1`);
-    console.log(usernameFromLocalStorage) 
+   
+}
 
-    if (usernameFromLocalStorage){
-        console.log(this.textContent)
-    this.innerText += usernameFromLocalStorage;
-
-    
-
-        }
+function returnTextContent(event){
+    const uniqueIDRef = (event.currentTarget.parentNode.parentNode.parentNode).getAttribute('value');
+    const usernameFromLocalStorage = localStorage.getItem(`name1-${uniqueIDRef}`);
+  
+        if (usernameFromLocalStorage){
+  
+        this.value = usernameFromLocalStorage;
     }
+}
 
 
 
+// const item = {
+//     form: document.querySelector('.js-form'),
+//     username: document.querySelector('.js-form input[name=username]'),
+//     password: document.querySelector('.js-form input[name=password]'),
+//     newpass: document.querySelector('.js-form input[name=new-password]')
+// }
 
+// console.log(item.username)
+
+// item.form.addEventListener('submit', handleFormSubmit)
+// item.username.addEventListener('input', handleInputUsername);
+// item.password.addEventListener('input', handleInputPassword);
+// item.newpass.addEventListener('input', handleInputNewPassword);
+
+
+// function handleFormSubmit(event){
+//     // event.preventDefault()
+//     console.log(event)
+// }
+
+// // const id = `f${(~~(Math.random()*1e8)).toString(16)}`
+
+// function handleInputUsername(event){
+//     console.log('event')
+//     const value = event.currentTarget.value;
+//    console.log(event)
+
+
+//     localStorage.setItem(`username`, value);
+
+//     // event.currentTarget.textContent = value
+
+ 
+// }
+
+// const usernameFromLocalStorage = localStorage.getItem('username');
+    
+//         if (usernameFromLocalStorage){
+    
+//          item.username.value = usernameFromLocalStorage   
+
+//     } 
+
+// //==========current password============//
+
+// function handleInputPassword(event){
+//         const value = event.currentTarget.value;
+//         localStorage.setItem(`password-${id}`, value);
+     
+// } 
+
+
+// const passwordFromLocalStorage = localStorage.getItem('password');
+
+//         if (passwordFromLocalStorage){
+
+//             item.password.value = passwordFromLocalStorage
+    
+// } 
+
+// //===================update password==============//
+
+
+// function handleInputNewPassword(event){
+    
+//     const value = event.currentTarget.value;
+//     localStorage.setItem('password', value);
+   
+// }
 
 
 
