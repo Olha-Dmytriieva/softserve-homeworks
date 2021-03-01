@@ -1,18 +1,16 @@
 
 const buttonCreationRef = document.getElementById('create');
-
 const mainContainerRef = document.querySelector('.main');
-console.dir(mainContainerRef.outerHTML)
-console.dir(mainContainerRef.innerHTML)
-const j = document.querySelector('.js-item');
+const inputForm = document.querySelector('.js-item');
+
+
 
 buttonCreationRef.addEventListener('click', 
     function (){
 
-    j.setAttribute('value', `f${(~~(Math.random()*1e8)).toString(16)}` )
-    const newNode = j.cloneNode(true) ;
-        // console.log(newNode)
-
+    inputForm.setAttribute('value', `f${(~~(Math.random()*1e8)).toString(16)}` )
+    const newNode = inputForm.cloneNode(true) ;
+      
     mainContainerRef.appendChild(newNode)
     let html = mainContainerRef.innerHTML
 
@@ -20,6 +18,8 @@ buttonCreationRef.addEventListener('click',
     localStorage.setItem('html', html);
 
 })
+
+
 
 
 function getElement() {
@@ -146,8 +146,7 @@ function returnPasswordTextContent(event){
     const passwordFromLocalStorage = localStorage.getItem(`password-${uniqueIDRef}`);
   
         if (passwordFromLocalStorage){
-  
-        this.value = passwordFromLocalStorage;
+          this.value = passwordFromLocalStorage;
     }
 }
 

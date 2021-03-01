@@ -36,19 +36,22 @@ textarea{
   
   /* Style page content */
   .main {
-    margin-left: 205px; /* Same as the width of the sidebar */
+    margin-left: 275px; /* Same as the width of the sidebar */
     padding: 0px 10px;
-    display: flex;
+   
     
   }
   
   .item{
-    display: grid;
+    display: inline-block;
     width: min-content;
     padding: 10px 50px;
     background-color: grey;
     margin: 30px;
   }
+
+
+  
   /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
