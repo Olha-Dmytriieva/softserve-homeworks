@@ -2,6 +2,8 @@
 const buttonCreationRef = document.getElementById('create');
 
 const mainContainerRef = document.querySelector('.main');
+console.dir(mainContainerRef.outerHTML)
+console.dir(mainContainerRef.innerHTML)
 const j = document.querySelector('.js-item');
 
 buttonCreationRef.addEventListener('click', 
@@ -9,15 +11,10 @@ buttonCreationRef.addEventListener('click',
 
     j.setAttribute('value', `f${(~~(Math.random()*1e8)).toString(16)}` )
     const newNode = j.cloneNode(true) ;
-        console.log(newNode)
+        // console.log(newNode)
 
     mainContainerRef.appendChild(newNode)
-
-    // j.append(newNode)
-
-    // let html = newNode.outerHTML
-
-    let html = mainContainerRef.outerHTML
+    let html = mainContainerRef.innerHTML
 
     
     localStorage.setItem('html', html);
@@ -59,14 +56,11 @@ const item = {
 }
 
 
+
 item.form.forEach((element => element.addEventListener('submit', handleFormSubmit)));
 
 item.name.forEach((element => element.addEventListener('input', handleInputName)));
-// item.name.forEach((element => element.addEventListener('onload', returnNameTextContent)));
 
-// window.addEventListener('click', function lala (e){
-// console.log(e.target)
-// } )
 
 item.username.forEach((element => element.addEventListener('input', handleInputUsername)));
 item.username.forEach((element => element.addEventListener('click', returnTextContent)));
@@ -89,53 +83,45 @@ function handleFormSubmit(event){
 
 function handleInputName(event){
     const uniqueIDRef = (event.currentTarget.parentNode.parentNode.parentNode).getAttribute('value');
-      
     localStorage.setItem(`name-${uniqueIDRef}`, event.currentTarget.value);
-    
+ 
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function getTextForNameField (){
    
-}
+    item.name.forEach((input) =>{
 
-function returnNameTextContent(event){
-    const uniqueIDRef = (event.currentTarget.parentNode.parentNode.parentNode).getAttribute('value');
-    const nameFromLocalStorage = localStorage.getItem(`name-${uniqueIDRef}`);
-  
-        if (nameFromLocalStorage){
-  
-            event.currentTarget.placeholder = nameFromLocalStorage;
+        const inputValue = ((input.parentNode.parentNode.parentNode).getAttribute('value'));
 
+        const nameFromLocalStorage = localStorage.getItem(`name-${inputValue}`);
 
-}
-
-    }
+                if (nameFromLocalStorage){
+                
+                    input.value = nameFromLocalStorage;
+                }
 
 
-window.addEventListener('onload', function lala (e){
-
-    const nameFromLocalStorage = localStorage.getItem(`name-${uniqueIDRef}`);
-
-    if (nameFromLocalStorage){
-  
-        e.target.value = nameFromLocalStorage;
-}
-
-    // console.log(e.target)
-    } 
+        }
     
     )
+
+} )
 
 
 
 function handleInputUsername(event){
     const uniqueIDRef = (event.currentTarget.parentNode.parentNode.parentNode).getAttribute('value');
       
-    localStorage.setItem(`name1-${uniqueIDRef}`, event.currentTarget.value);
+    localStorage.setItem(`username-${uniqueIDRef}`, event.currentTarget.value);
     
    
 }
 
 function returnTextContent(event){
     const uniqueIDRef = (event.currentTarget.parentNode.parentNode.parentNode).getAttribute('value');
-    const usernameFromLocalStorage = localStorage.getItem(`name1-${uniqueIDRef}`);
+    const usernameFromLocalStorage = localStorage.getItem(`username-${uniqueIDRef}`);
   
         if (usernameFromLocalStorage){
   
