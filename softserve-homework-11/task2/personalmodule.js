@@ -7,15 +7,15 @@ let time = currentDate.getHours();
 
 module.exports.greet = function (hours){
     if (hours >= 23 || hours <= 4 ){
-        return('Доброї ночі')
+        return('Good night')
     } else if(hours === 0){
-        return('Доброї ночі')
+        return('Good night')
     } else if(hours >= 5 && hours <= 10 ){
-        return('Доброго ранку')
+        return('Good morning')
     } else if(hours >= 11 && hours <= 16 ){
-        return('Доброго дня')
+        return('Good afternoon')
     }else if(hours >= 17 && hours <= 22 ){
-        return('Доброго вечора')
+        return('Good evening')
     };
 }
 
