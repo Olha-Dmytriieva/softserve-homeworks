@@ -95,6 +95,8 @@ document.addEventListener('DOMContentLoaded', function getTextForNameField (){
 
         const inputValue = ((input.parentNode.parentNode.parentNode).getAttribute('value'));
 
+        // console.log((input.parentNode.parentNode))
+
         const nameFromLocalStorage = localStorage.getItem(`name-${inputValue}`);
 
                 if (nameFromLocalStorage){
@@ -126,6 +128,7 @@ function returnTextContent(event){
         if (usernameFromLocalStorage){
   
         this.value = usernameFromLocalStorage;
+       
     }
 }
 
