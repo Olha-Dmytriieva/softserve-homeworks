@@ -1,23 +1,27 @@
-// const username = Object.values(os.userInfo());
-let currentDate = new Date()
+
+const os = require("os");
+const username = os.userInfo().username;
+let currentDate = new Date();
+let time = currentDate.getHours();
 
 
-const greet = function (hours){
+module.exports.greet = function (hours){
     if (hours >= 23 || hours <= 4 ){
-        console.log('Доброї ночі')
+        return('Доброї ночі')
     } else if(hours === 0){
-        console.log('Доброї ночі')
+        return('Доброї ночі')
     } else if(hours >= 5 && hours <= 10 ){
-        console.log('Доброго ранку')
+        return('Доброго ранку')
     } else if(hours >= 11 && hours <= 16 ){
-        console.log('Доброго дня')
+        return('Доброго дня')
     }else if(hours >= 17 && hours <= 22 ){
-        console.log('Доброго вечора')
+        return('Доброго вечора')
     };
 }
 
-greet(currentDate.getHours());
+// greet(time);
 
-// exports.username = username;
+exports.username = username;
 exports.currentDate = currentDate;
-exports.greet = greet;
+// exports.greet = greet;
+exports.time = time;
