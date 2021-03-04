@@ -52,9 +52,11 @@ const item = {
     name:document.querySelectorAll('.js-form input[name=name]'),
     username: document.querySelectorAll('.js-form input[name=username]'),
     password: document.querySelectorAll('.js-form input[name=password]'),
-    newpass: document.querySelectorAll('.js-form input[name=new-password]')
+    newpass: document.querySelectorAll('.js-form input[name=new-password]'),
+    copybutton: document.querySelectorAll('.copy')
 }
 
+console.log(item.copybutton)
 
 
 item.form.forEach((element => element.addEventListener('submit', handleFormSubmit)));
@@ -70,6 +72,7 @@ item.password.forEach((element => element.addEventListener('click', returnPasswo
 
 item.newpass.forEach((element => element.addEventListener('input', handleNewPasswordUsername)));
 
+item.copybutton.forEach((element => element.addEventListener('click', handleCopyFunction)));
 
 
 function handleFormSubmit(event){
@@ -102,15 +105,19 @@ document.addEventListener('DOMContentLoaded', function getTextForNameField (){
                 if (nameFromLocalStorage){
                 
                     input.value = nameFromLocalStorage;
+                   
+                    
                 }
-
-
         }
     
     )
 
 } )
 
+
+// $("body").on("mousedown", '.input', function (e) {
+//     e.preventDefault();
+// });
 
 
 function handleInputUsername(event){
@@ -128,7 +135,7 @@ function returnTextContent(event){
         if (usernameFromLocalStorage){
   
         this.value = usernameFromLocalStorage;
-       
+           
     }
 }
 
@@ -166,5 +173,19 @@ function handleNewPasswordUsername(event){
 }
 
 
+function handleCopyFunction(event){
+    event.preventDefault()
+    // console.log((event.currentTarget).previousElementSibling)
+    const textToCopy = (event.currentTarget).previousElementSibling;
+
+    textToCopy.select();
+      
+    document.execCommand("copy");
+  
+  
+    alert("Copied the text: " + textToCopy.value)
+
+
+}
 
 

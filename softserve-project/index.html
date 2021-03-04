@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/styles.css" />
     <link rel="stylesheet" href="./styles/normalize.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -34,17 +35,19 @@ Side navigation
      
       <label>
         
-        <input name="name" placeholder="Name of website" >
+        <input class="input"  name="name" placeholder="Name of website" >
       </label>
   
       <label>
         Username
-        <input name="username" id = "social" >
+        <input class="input"  name="username" id = "social" placeholder='Click to view' />
+        <button class="copy" id="copy">Copy username</button>
       </label>
   
       <label>
         Password
-        <input name="password" id="social" placeholder='Click to view' />
+        <input class="input"  name="password" id="social" placeholder='Click to view' />
+        <button class="copy" id="copy">Copy password </button>
       </label>
   
       <label>
