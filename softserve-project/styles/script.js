@@ -56,7 +56,7 @@ const item = {
     copybutton: document.querySelectorAll('.copy')
 }
 
-console.log(item.copybutton)
+// console.log(item.copybutton)
 
 
 item.form.forEach((element => element.addEventListener('submit', handleFormSubmit)));
@@ -189,3 +189,26 @@ function handleCopyFunction(event){
 }
 
 
+const sidebarSection = document.getElementById('sort-section');
+const filterList =  document.querySelectorAll('#sort option');
+
+console.log(filterList)
+
+
+sidebarSection.addEventListener('click', sidedarFunction)
+
+function sidedarFunction(event){
+    console.dir(event.target.id)
+}
+
+
+filterList.forEach((element => element.addEventListener('change', function  (e){
+    console.log(e)
+})));
+// filterList.option.forEach((element => element.addEventListener('click', function(e){
+//     console.log('j')
+// })))
+
+// function  (e){
+//     console.log(e)
+// }

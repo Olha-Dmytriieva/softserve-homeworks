@@ -14,11 +14,11 @@
 <body>
 Side navigation 
  <div class="sidenav">
-  <ul>
-    <li class="js-social-networks"> Social networks</li>
-    <li class="js-job">Job</li>
-    <li class="js-home">Home</li>
-    <li class="js-shopping">Shopping</li>
+  <ul id = "sort-section">
+    <li class="js-social-networks" id="Social networks"> Social networks</li>
+    <li class="js-job" id="Job">Job</li>
+    <li class="js-home" id="Home">Home</li>
+    <li class="js-shopping" id="Shopping">Shopping</li>
   </ul>
   <button id = "create" class="button">Create new item</button>
 </div>
@@ -30,6 +30,15 @@ Side navigation
 <div class="main">
   
   <div class="item js-item">
+
+    <select name="sort" id="sort" >
+      <option value="0" selected = true style="visibility: hidden"></option>
+      <option value="Social networks">Social networks</option>
+      <option value="Job">Job</option>
+      <option value="Home">Home</option>
+      <option value="Shopping">Shopping</option>
+      
+  </select>
   
     <form name="signup_form" autocomplete="off" class="js-form" novalidate>
      
