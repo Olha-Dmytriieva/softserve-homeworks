@@ -1,4 +1,6 @@
 
+///creation 
+
 const buttonCreationRef = document.getElementById('create');
 const mainContainerRef = document.querySelector('.main');
 const inputForm = document.querySelector('.js-item');
@@ -95,7 +97,7 @@ function handleInputName(event){
 document.addEventListener('DOMContentLoaded', function getTextForNameField (){
    
     item.name.forEach((input) =>{
-
+        // console.log(input)
         const inputValue = ((input.parentNode.parentNode.parentNode).getAttribute('value'));
 
         // console.log((input.parentNode.parentNode))
@@ -190,25 +192,57 @@ function handleCopyFunction(event){
 
 
 const sidebarSection = document.getElementById('sort-section');
-const filterList =  document.querySelectorAll('#sort option');
+const filterList =  document.querySelectorAll('#sort');
 
-console.log(filterList)
+// console.log(filterList)
+
+
+
+
+filterList.forEach((element => element.addEventListener('change', filterFunction)))
+
+
+
+function filterFunction (e){
+    const uniqueIDRef = (e.target.parentNode).getAttribute('value')
+    localStorage.setItem(`filter-${uniqueIDRef}`, e.currentTarget.options.selectedIndex);
+
+};
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    filterList.forEach((input) =>{
+        const uniqueIDRef= (input.parentNode.getAttribute('value'));
+        const filterValueFromLocalStorage = localStorage.getItem(`filter-${uniqueIDRef}`)
+
+
+        input.options.selectedIndex = filterValueFromLocalStorage;
+
+
+    })
+})
+
 
 
 sidebarSection.addEventListener('click', sidedarFunction)
 
 function sidedarFunction(event){
-    console.dir(event.target.id)
-}
+
+    for(let i = 0; i<filterList.length; i+=1){
 
 
-filterList.forEach((element => element.addEventListener('change', function  (e){
-    console.log(e)
-})));
-// filterList.option.forEach((element => element.addEventListener('click', function(e){
-//     console.log('j')
-// })))
+        if (event.target.id != filterList[i].selectedIndex){
+            
+            filterList[i].parentNode.classList.add('visible')
+            console.log(filterList[i].parentNode)
+            } else filterList[i].parentNode.classList.remove('visible')
+        
+        
+    }
 
-// function  (e){
-//     console.log(e)
-// }
+            
+
+} 
+
+
+

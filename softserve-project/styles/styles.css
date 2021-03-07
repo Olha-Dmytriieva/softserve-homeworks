@@ -139,3 +139,12 @@ textarea{
 .input{
   pointer-events: none;
 }
+
+
+.visible{
+  display: none;
+}
+
+.sort{
+  margin-bottom: 7px;
+}
