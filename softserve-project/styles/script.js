@@ -1,5 +1,5 @@
 
-///creation 
+///creation  and removing of elements
 
 const buttonCreationRef = document.getElementById('create');
 const mainContainerRef = document.querySelector('.main');
@@ -47,7 +47,7 @@ function removeBtnFunction(event){
 }
 
 
-
+///adding of event lisnerers to every item of the form
 
 const item = {
     form: document.querySelectorAll('.js-form'),
@@ -58,7 +58,7 @@ const item = {
     copybutton: document.querySelectorAll('.copy')
 }
 
-// console.log(item.copybutton)
+
 
 
 item.form.forEach((element => element.addEventListener('submit', handleFormSubmit)));
@@ -117,10 +117,6 @@ document.addEventListener('DOMContentLoaded', function getTextForNameField (){
 } )
 
 
-// $("body").on("mousedown", '.input', function (e) {
-//     e.preventDefault();
-// });
-
 
 function handleInputUsername(event){
     const uniqueIDRef = (event.currentTarget.parentNode.parentNode.parentNode).getAttribute('value');
@@ -177,7 +173,6 @@ function handleNewPasswordUsername(event){
 
 function handleCopyFunction(event){
     event.preventDefault()
-    // console.log((event.currentTarget).previousElementSibling)
     const textToCopy = (event.currentTarget).previousElementSibling;
 
     textToCopy.select();
@@ -191,10 +186,13 @@ function handleCopyFunction(event){
 }
 
 
+
+//section that permits to filter items from sidebar
+
 const sidebarSection = document.getElementById('sort-section');
 const filterList =  document.querySelectorAll('#sort');
 
-// console.log(filterList)
+
 
 
 
@@ -238,9 +236,7 @@ function sidedarFunction(event){
             } else filterList[i].parentNode.classList.remove('visible')
         
         
-    }
-
-            
+    }        
 
 } 
 
