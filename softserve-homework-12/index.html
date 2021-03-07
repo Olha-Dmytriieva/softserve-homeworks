@@ -6,32 +6,8 @@
 
 <body>
 
-  <!-- <button onclick="loadData()">Load data from server</button>
-  <div id="dataStorage"></div>
 
-  <script>
-    function loadData() {
-      const xhr = new XMLHttpRequest();
 
-      // xhr.open('GET', 'data.txt', true);  // set wrong file
-      // xhr.open('GET', 'https://rubygarage.github.io/', true); // responce headers: access-control-allow-origin: *
-      // xhr.open('GET', 'https://www.w3schools.com/js/js_ajax_intro.asp', true); // x-frame-options: SAMEORIGIN
-      xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/3', true);
-
-      xhr.onreadystatechange = function() { // (3)
-        if (xhr.readyState != 4) return;
-
-        if (xhr.status != 200) {
-          // error processing
-          alert('Error ' + xhr.status + ': ' + xhr.statusText);
-        } else {
-          // display result            
-          document.getElementById("dataStorage").innerHTML = xhr.responseText;
-        }
-      }
-      xhr.send();
-    }
-  </script> -->
   
 
 <button type="button" id=button>Vote!</button>
